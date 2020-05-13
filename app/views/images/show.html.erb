@@ -1,3 +1,9 @@
 <p>
+  <% if flash[:notice] %>
+    <p class="notice" >
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+
   <%= image_tag @image.url %>
 </p>
