@@ -1,12 +1,22 @@
 <h1>Create an image</h1>
 
 <%= form_with scope: :image, url: images_path, local: true do |form| %>
-<p>
-  <%= form.label :url %><br>
-  <%= form.text_field :url %>
-</p>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @image.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<p>
-  <%= form.submit %>
-</p>
+  <p>
+    <%= form.label :url %><br>
+    <%= form.text_field :url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>
